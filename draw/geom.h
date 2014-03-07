@@ -1,15 +1,27 @@
 
+
+
+
+
+
 #pragma region "CPoint"
 
 class CPoint
 {
-	//publics
+private: 
+	static int iCount;
+
+
 private:
 	float X;
 	float Y;
 
 public:
+	//CPoint(){ iCount++; };
 	CPoint(float x, float y);
+	~CPoint(){ iCount--; };
+
+	static int CPoint::getCount() { return iCount; };
 
 	void set(float x, float y);
 	void setX(float x);
@@ -31,13 +43,20 @@ public:
 #pragma region "CLine"
 
 class CLine{
- 
+
+private:
+	static int iCount;
+
 private:
 	CPoint pStart;
 	CPoint pEnd;
 
 public:
+	//CLine(){ iCount++; };
 	CLine(CPoint Start, CPoint End);
+	~CLine(){ iCount--; };
+	
+	static int CLine::getCount() { return iCount; };
 
 	void set(CPoint Start, CPoint End);
 	void setStart(CPoint Start);
@@ -58,12 +77,21 @@ public:
 
 
 class CRectangle{
+
+private:
+	static int iCount;
+
 private:
 	CPoint pBotLeft;
 	CPoint pTopRight;
 
 public:
+	//CRectangle(){ iCount++; };
 	CRectangle(CPoint BotLeft, CPoint TopRight);
+	~CRectangle(){ iCount--; };
+
+	static int CRectangle::getCount() { return iCount; };
+
 
 	void set(CPoint BotLeft, CPoint TopRight);
 	void setBotLeft(CPoint BotLeft);
@@ -81,12 +109,20 @@ public:
 #pragma region "CCircle"
 
 class CCircle{
+
+private:
+	static int iCount;
+
 private:
 	CPoint pCenter;
 	float fRadius;
 
 public:
+	//CCircle(){ iCount++; };
 	CCircle(CPoint Center, float Radius);
+	~CCircle(){ iCount--; };
+
+	static int CCircle::getCount() { return iCount; };
 
 
 	void set(CPoint Center, float Radius);

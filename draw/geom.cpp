@@ -7,11 +7,25 @@
 using namespace std;
 
 
+#pragma region "static"
+
+int CPoint::iCount = 0;
+int CCircle::iCount = 0;
+int CLine::iCount = 0;
+int CRectangle::iCount = 0;
+
+#pragma endregion
+
+
+
 #pragma region "CPoint"
-CPoint::CPoint(float x = 0, float y = 0){
-	this->X = x;
-	this->Y = y;
+
+CPoint::CPoint(float x , float y)
+:X(x),Y(y){
+	CPoint::iCount++;
 }
+
+
 
 void CPoint::set(float x, float y){
 	this->X = x;
@@ -47,9 +61,10 @@ void CPoint::list(void){
 
 #pragma region "CLine"
 
-CLine::CLine(CPoint start, CPoint end){
-	this->pStart = start;
-	this->pEnd = end;
+
+CLine::CLine(CPoint start, CPoint end)
+:pStart(start), pEnd(end){
+	CLine::iCount++;
 }
 
 void CLine::set(CPoint start, CPoint end){
@@ -91,9 +106,9 @@ void CLine::list(void){
 
 #pragma region "CRectangle"
 
-CRectangle::CRectangle(CPoint BotLeft, CPoint TopRight){
-	this->pBotLeft = BotLeft;
-	this->pTopRight = TopRight;
+CRectangle::CRectangle(CPoint BotLeft, CPoint TopRight):
+pBotLeft(BotLeft), pTopRight(TopRight){
+	CRectangle::iCount++;
 }
 
 void CRectangle::set(CPoint BotLeft, CPoint TopRight){
@@ -128,11 +143,12 @@ void CRectangle::list(void){
 
 #pragma region "CCircle"
 
-CCircle::CCircle(CPoint Center, float Radius){
-	this->pCenter = Center;
-	this->fRadius = Radius;
 
+CCircle::CCircle(CPoint Center, float Radius)
+:pCenter(Center),fRadius(Radius) {
+	CCircle::iCount++;
 }
+
 void CCircle::set(CPoint Center, float Radius){
 	this->pCenter = Center;
 	this->fRadius = Radius;
