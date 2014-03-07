@@ -15,11 +15,12 @@ public:
 	void setX(float x);
 	void setY(float y);
 
-	float listX();
-	float listY();
+	float getX(void);
+	float getY(void);
+	void listX(void);
+	void listY(void);
 
-	//?
-	const float* list[2];
+	void list(void);
 
 
 			
@@ -47,8 +48,7 @@ public:
 
 	float getLength();
 	
-	//?
-	const CPoint* list[2];
+	void list(void);
 
 };
 
@@ -72,7 +72,8 @@ public:
 	CPoint listBotLeft();
 	CPoint listTopRight();
 	float getArea();
-	const CPoint* list[2];
+	
+	void list(void);
 };
 
 #pragma endregion
@@ -95,6 +96,8 @@ public:
 	CPoint listCenter();
 	float listRadius();
 	float getArea();
+
+	void list(void);
 };
 
 #pragma endregion

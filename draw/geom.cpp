@@ -1,7 +1,10 @@
 
 #include "geom.h";
 #include <cmath>;
+#include <iostream>;
 
+
+using namespace std;
 
 
 #pragma region "CPoint"
@@ -23,12 +26,20 @@ void CPoint::setY(float y){
 	this->Y = y;
 }
 
-float CPoint::listX(){
+float CPoint::getX(void){
 	return this->X;
 }
-
-float CPoint::listY(){
+float CPoint::getY(void){
 	return this->Y;
+}
+void CPoint::listX(void){
+	cout << "CPoint : x= "<< this->X;
+}
+void CPoint::listY(void){
+	cout << "CPoint : y= " << this->Y;
+}
+void CPoint::list(void){
+	cout << "CPoint : x= " << this->X << ", y= " << this->Y <<endl;
 }
 
 
@@ -65,9 +76,15 @@ float CLine::getLength(){
 	return 
 		abs(
 		sqrt(
-		(pow((float)(this->pStart.listX() - this->pEnd.listX()), 2.0) +
-		pow((float)(this->pStart.listY() - this->pEnd.listY()), 2.0))));
+		(pow((float)(this->pStart.getX() - this->pEnd.getX()), 2.0) +
+		pow((float)(this->pStart.getY() - this->pEnd.getY()), 2.0))));
 
+}
+
+void CLine::list(void){
+	cout << "CLine :" << endl << "--s-- "; this->pStart.list(); 
+	cout << "--e-- "; this->pEnd.list();
+	cout << endl;
 }
 
 #pragma endregion
@@ -98,8 +115,13 @@ CPoint CRectangle::listTopRight(){
 	return this->pTopRight;
 }
 float CRectangle::getArea(){
-	return abs((this->pBotLeft.listX() - this->pTopRight.listX()))*
-		abs((this->pBotLeft.listY() - this->pTopRight.listY()));
+	return abs((this->pBotLeft.getX() - this->pTopRight.getX()))*
+		abs((this->pBotLeft.getY() - this->pTopRight.getY()));
+}
+void CRectangle::list(void){
+	cout << "CLine :" << endl << "--botLeft-- "; this->pBotLeft.list();
+	cout <<  "--topRight-- "; this->pTopRight.list();
+	cout << endl;
 }
 
 #pragma endregion
@@ -129,6 +151,11 @@ float CCircle::listRadius(){
 }
 float CCircle::getArea(){
 	return pow((float)this->fRadius, 2.0) * atan(1.0) * 4; //PI
+}
+void CCircle::list(void){
+	cout << "CCircle :" << endl << "--center-- "; this->pCenter.list();
+	cout << "--radius-- " << this->fRadius << endl;
+
 }
 
 #pragma endregion

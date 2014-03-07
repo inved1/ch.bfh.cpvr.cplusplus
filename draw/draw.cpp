@@ -25,7 +25,7 @@ int main(){
 	cin >> y3;
 
 
-	CPoint* oPoint1 = new CPoint(x1, y2);
+	CPoint* oPoint1 = new CPoint(x1, y1);
 	CPoint* oPoint2 = new CPoint(x2, y2);
 	CPoint* oPoint3 = new CPoint(x3, y3);
 	CLine* oLine1 = new CLine(*oPoint1, *oPoint2);
@@ -36,6 +36,19 @@ int main(){
 
 	CCircle* oCircle1 = new CCircle(*oPoint1, x2);
 	CCircle* oCircle2 = new CCircle(*oPoint2, x3);
+	cout << "-------------------------------" << endl;
+	cout << "Point 1 list: ";  oPoint1->list();
+	cout << "Point 2 list: ";  oPoint2->list();
+	cout << "Point 3 list: ";  oPoint3->list();
+	cout << "Line 1 list: ";  oLine1->list();
+	cout << "Line 2 list: ";  oLine2->list();
+	cout << "Rect 1 list: ";  oRect1->list();
+	cout << "Rect 2 list: ";  oRect2->list();
+	cout << "Circle 1 list: ";  oCircle1->list();
+	cout << "Circle 2 list: ";  oCircle2->list();
+
+
+
 
 	cout << "-------------------------------" << endl;
 	cout << "Resultate: " << endl;
