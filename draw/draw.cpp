@@ -2,7 +2,12 @@
 
 
 #include <iostream>
-#include "geom.h"
+
+
+#include "CPoint.h"
+#include "CCircle.h"
+#include "CLine.h"
+#include "CRectangle.h"
 
 using namespace std;
 

@@ -76,11 +76,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CCircle.cpp" />
+    <ClCompile Include="CLine.cpp" />
+    <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="draw.cpp" />
-    <ClCompile Include="geom.cpp" />
+    <ClCompile Include="CPoint.cpp" />
+    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="geom.h" />
+    <ClInclude Include="CCircle.h" />
+    <ClInclude Include="CLine.h" />
+    <ClInclude Include="CRectangle.h" />
+    <ClInclude Include="CPoint.h" />
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
