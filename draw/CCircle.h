@@ -18,6 +18,12 @@ public:
 	CCircle(CPoint Center, float Radius);
 	~CCircle(){ iCount--; };
 
+	//copy constructior
+	CCircle(const CCircle& oSource);
+
+	//assignment
+	CCircle& operator= (const CCircle& oSource);
+
 	static int CCircle::getCount() { return iCount; };
 
 

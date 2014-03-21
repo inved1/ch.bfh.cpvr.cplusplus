@@ -18,6 +18,12 @@ public:
 	CLine(CPoint Start, CPoint End);
 	~CLine(){ iCount--; };
 
+	//copy constructior
+	CLine(const CLine& oSource);
+
+	//assignment
+	CLine& operator= (const CLine& oSource);
+
 	static int CLine::getCount() { return iCount; };
 
 	void set(CPoint Start, CPoint End);

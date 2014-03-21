@@ -18,7 +18,17 @@ CCircle::CCircle(CPoint Center, float Radius)
 :pCenter(Center), fRadius(Radius) {
 	CCircle::iCount++;
 }
+CCircle::CCircle(const CCircle& oSource)
+:fRadius(oSource.fRadius),pCenter(oSource.pCenter) {
+}
 
+//assignment
+CCircle& CCircle::operator=(const CCircle& oSource){
+	this->fRadius = oSource.fRadius;
+	this->pCenter = oSource.pCenter;
+
+	return *this; //referenz auf mich selbst
+}
 void CCircle::set(CPoint Center, float Radius){
 	this->pCenter = Center;
 	this->fRadius = Radius;

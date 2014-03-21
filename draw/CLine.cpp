@@ -18,6 +18,23 @@ CLine::CLine(CPoint start, CPoint end)
 	CLine::iCount++;
 }
 
+
+//Copy constructor
+CLine::CLine(const CLine& oSource)
+:pStart(oSource.pStart),pEnd(oSource.pEnd)  {
+
+}
+
+//assignment
+CLine& CLine::operator=(const CLine& oSource){
+
+	this->pStart = oSource.pStart;
+	this->pEnd = oSource.pEnd;
+
+
+	return *this; //referenz auf mich selbst
+}
+
 void CLine::set(CPoint start, CPoint end){
 	this->pStart = start;
 	this->pEnd = end;

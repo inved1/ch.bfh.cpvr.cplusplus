@@ -17,6 +17,19 @@ pBotLeft(BotLeft), pTopRight(TopRight){
 	CRectangle::iCount++;
 }
 
+
+//Copy constructor
+CRectangle::CRectangle(const CRectangle& oSource)
+:pBotLeft(oSource.pBotLeft),pTopRight(oSource.pTopRight){
+}
+
+//assignment
+CRectangle& CRectangle::operator=(const CRectangle& oSource){
+	this->pBotLeft = oSource.pBotLeft;
+	this->pTopRight = oSource.pTopRight;
+
+	return *this; //referenz auf mich selbst
+}
 void CRectangle::set(CPoint BotLeft, CPoint TopRight){
 	this->pBotLeft = BotLeft;
 	this->pTopRight = TopRight;

@@ -18,6 +18,12 @@ public:
 	CRectangle(CPoint BotLeft, CPoint TopRight);
 	~CRectangle(){ iCount--; };
 
+	//copy constructior
+	CRectangle(const CRectangle& oSource);
+
+	//assignment
+	CRectangle& operator= (const CRectangle& oSource);
+
 	static int CRectangle::getCount() { return iCount; };
 
 
