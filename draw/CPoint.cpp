@@ -1,21 +1,31 @@
+#include <gl\glut.h>
+
 #include "CPoint.h"
 #include <iostream>
 #include <cmath>
+
 
 using namespace std;
 
 #pragma region "static"
 
 int CPoint::iCount = 0;
+static float pSize = 3.0;
+
 #pragma endregion
 
 
 
 #pragma region "CPoint"
 
+CPoint::CPoint(){
+	CPoint::iCount++;
+}
+
 CPoint::CPoint(float x, float y)
 :X(x), Y(y){
 	CPoint::iCount++;
+
 }
 
 //Copy constructor
@@ -33,7 +43,16 @@ CPoint& CPoint::operator=(const CPoint& oSource){
 	return *this; //referenz auf mich selbst
 }
 
+//draw stuff
+void CPoint::drawPoint(){
+	glPointSize(this->pointSize);
+	glBegin(GL_POINTS);
+	glVertex3f(this->getX(), this->getY(), 0.0);
+	glEnd();
 
+}
+
+float CPoint::pointSize = pSize;
 void CPoint::set(float x, float y){
 	this->X = x;
 	this->Y = y;

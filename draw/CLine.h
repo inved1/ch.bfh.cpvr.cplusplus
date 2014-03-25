@@ -14,8 +14,10 @@ private:
 	CPoint pEnd;
 
 public:
-	//CLine(){ iCount++; };
+	CLine();
 	CLine(CPoint Start, CPoint End);
+	CLine(int x1, int y1, int x2, int y2);
+
 	~CLine(){ iCount--; };
 
 	//copy constructior
@@ -23,6 +25,9 @@ public:
 
 	//assignment
 	CLine& operator= (const CLine& oSource);
+
+	//draw stuff
+	void drawLine(void);
 
 	static int CLine::getCount() { return iCount; };
 

@@ -14,7 +14,7 @@ private:
 	float fRadius;
 
 public:
-	//CCircle(){ iCount++; };
+	CCircle();
 	CCircle(CPoint Center, float Radius);
 	~CCircle(){ iCount--; };
 
@@ -23,6 +23,9 @@ public:
 
 	//assignment
 	CCircle& operator= (const CCircle& oSource);
+
+	//draw stuff
+	void drawCircle();
 
 	static int CCircle::getCount() { return iCount; };
 

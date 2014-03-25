@@ -14,8 +14,9 @@ private:
 	CPoint pTopRight;
 
 public:
-	//CRectangle(){ iCount++; };
+	CRectangle();
 	CRectangle(CPoint BotLeft, CPoint TopRight);
+	CRectangle(int x1, int y1, int x2, int y2);
 	~CRectangle(){ iCount--; };
 
 	//copy constructior
@@ -23,6 +24,9 @@ public:
 
 	//assignment
 	CRectangle& operator= (const CRectangle& oSource);
+
+	//draw stuff
+	void drawRectangle();
 
 	static int CRectangle::getCount() { return iCount; };
 

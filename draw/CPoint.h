@@ -12,7 +12,7 @@ private:
 	float Y;
 
 public:
-	//CPoint(){ iCount++; };
+	CPoint();
 	CPoint(float x, float y);
 	~CPoint(){ iCount--; };
 
@@ -21,6 +21,10 @@ public:
 
 	//assignment
 	CPoint& operator= (const CPoint& oSource);
+
+	//draw stuff
+	void drawPoint(void);
+	static float pointSize;
 
 	static int CPoint::getCount() { return iCount; };
 

@@ -1,3 +1,5 @@
+#include <gl\glut.h>
+
 #include "CLine.h"
 #include <cmath>
 #include <iostream>
@@ -12,12 +14,22 @@ int CLine::iCount = 0;
 
 #pragma region "CLine"
 
+CLine::CLine(){
+	CLine::iCount++;
+}
 
 CLine::CLine(CPoint start, CPoint end)
 :pStart(start), pEnd(end){
 	CLine::iCount++;
 }
 
+CLine::CLine(int x1, int y1, int x2, int y2){
+	this->pStart.setX(x1);
+	this->pStart.setY(y1);
+	this->pEnd.setX(x2);
+	this->pEnd.setY(y2);
+	CLine::iCount++;
+}
 
 //Copy constructor
 CLine::CLine(const CLine& oSource)
@@ -34,6 +46,15 @@ CLine& CLine::operator=(const CLine& oSource){
 
 	return *this; //referenz auf mich selbst
 }
+
+//draw stuff
+void CLine::drawLine(){
+	glBegin(GL_LINES);
+	glVertex3f(this->pStart.getX(), this->pStart.getY(), 0.00);
+	glVertex3f(this->pEnd.getX(), this->pEnd.getY(), 0.00);
+	glEnd();
+}
+
 
 void CLine::set(CPoint start, CPoint end){
 	this->pStart = start;

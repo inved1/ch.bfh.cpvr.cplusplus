@@ -1,6 +1,9 @@
 #include "CCircle.h"
+#include <gl\glut.h>
 #include <cmath>
 #include <iostream>
+
+#define PI  3.14159265358979324
 
 using namespace std;
 
@@ -8,11 +11,15 @@ using namespace std;
 #pragma region "static"
 
 int CCircle::iCount = 0;
+static int iVertices = 3650;
 #pragma endregion
 
 
 #pragma region "CCircle"
 
+CCircle::CCircle(){
+	CCircle::iCount++;
+}
 
 CCircle::CCircle(CPoint Center, float Radius)
 :pCenter(Center), fRadius(Radius) {
@@ -29,6 +36,24 @@ CCircle& CCircle::operator=(const CCircle& oSource){
 
 	return *this; //referenz auf mich selbst
 }
+
+//draw circle
+void CCircle::drawCircle(void){
+	float angle = 0;
+	glColor3f(0.0, 0.0, 0.0);
+	glBegin(GL_LINE_LOOP);
+	for (int i = 0; i <= iVertices; i++){
+		glVertex3d(this->pCenter.getX() + this->fRadius * cos(angle),
+			this->pCenter.getY() + this->fRadius * sin(angle),
+			0.0);
+		angle += 2 * PI / iVertices;
+	}
+	glEnd();
+	glFlush();
+
+
+}
+
 void CCircle::set(CPoint Center, float Radius){
 	this->pCenter = Center;
 	this->fRadius = Radius;
