@@ -12,10 +12,11 @@
 #include "..\draw\CLine.h"
 #include "..\draw\CRectangle.h"
 
-#include "myGlobals.h"
 
 using namespace std;
 
+CPoint *currentPoint1;
+CPoint *currentPoint2;
 
 
 void setup(void){
@@ -30,9 +31,23 @@ void reshape(int w, int h){
 }
 
 void display(void){
+	
+	//code von prof
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	glColor3f(0.0F, 0.0F, 1.0F);
+
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	// init coordinates to adjust for mouse input coordinates
+	glTranslatef(0.0, (GLfloat)glutGet(GLUT_WINDOW_HEIGHT), 0.0);
+	glScalef(1.0, -1.0, 1.0);
+
+	// call drawing display function for figure drawing
+	cDrawing::displayDrawing();
+	glPopMatrix();
+
 	glutSwapBuffers();
-	glutPostRedisplay();
 }
 
 void mouseControl(int btn, int state, int x, int y){
@@ -50,12 +65,22 @@ void mouseMotion(int x, int y)
 }
 
 void keyInput(unsigned char key, int x, int y){
+	
+	
+	CPoint* currentPoint1 = new CPoint((float)x, (float)y);
+
+
 	switch (key){
 	case 27:
 		exit(0);
 		break;
 	case 112: // p , point
-//		g_oDraw.addPoint(x, y);
+		//cDrawing::addPoint(x, y);
+		//currentPoint = CPoint::CPoint(x, y);
+
+		
+		cDrawing::addFigure(currentPoint1,currentPoint1);
+		
 	case 99: // c, circle
 
 	case 114: //r, rectangle 

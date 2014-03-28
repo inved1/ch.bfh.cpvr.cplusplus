@@ -8,27 +8,27 @@ using namespace std;
 
 #pragma region "static"
 
-int CLine::iCount = 0;
+
 #pragma endregion
 
 
 #pragma region "CLine"
 
 CLine::CLine(){
-	CLine::iCount++;
+	CLine::ulCount++;
 }
 
 CLine::CLine(CPoint start, CPoint end)
 :pStart(start), pEnd(end){
-	CLine::iCount++;
+	CLine::ulCount++;
 }
 
-CLine::CLine(int x1, int y1, int x2, int y2){
+CLine::CLine(float x1, float y1, float x2, float y2){
 	this->pStart.setX(x1);
 	this->pStart.setY(y1);
 	this->pEnd.setX(x2);
 	this->pEnd.setY(y2);
-	CLine::iCount++;
+	CLine::ulCount++;
 }
 
 //Copy constructor

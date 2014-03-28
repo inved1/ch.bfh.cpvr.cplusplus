@@ -10,7 +10,6 @@ using namespace std;
 
 #pragma region "static"
 
-int CCircle::iCount = 0;
 static int iVertices = 3650;
 #pragma endregion
 
@@ -18,15 +17,21 @@ static int iVertices = 3650;
 #pragma region "CCircle"
 
 CCircle::CCircle(){
-	CCircle::iCount++;
+	CCircle::ulCount++;
 }
 
 CCircle::CCircle(CPoint Center, float Radius)
 :pCenter(Center), fRadius(Radius) {
-	CCircle::iCount++;
+	CCircle::ulCount++;
 }
+CCircle::CCircle(float x, float y, float Radius){
+	this->pCenter = CPoint(x, y);
+	this->fRadius = Radius;
+}
+
 CCircle::CCircle(const CCircle& oSource)
 :fRadius(oSource.fRadius),pCenter(oSource.pCenter) {
+	CCircle::ulCount++;
 }
 
 //assignment

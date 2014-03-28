@@ -7,7 +7,7 @@
 class CCircle{
 
 private:
-	static int iCount;
+	unsigned long ulCount = 0;
 
 private:
 	CPoint pCenter;
@@ -16,7 +16,8 @@ private:
 public:
 	CCircle();
 	CCircle(CPoint Center, float Radius);
-	~CCircle(){ iCount--; };
+	CCircle(float x, float y, float Radius);
+	~CCircle(){ ulCount--; };
 
 	//copy constructior
 	CCircle(const CCircle& oSource);
@@ -27,7 +28,6 @@ public:
 	//draw stuff
 	void drawCircle();
 
-	static int CCircle::getCount() { return iCount; };
 
 
 	void set(CPoint Center, float Radius);

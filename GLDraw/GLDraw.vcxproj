@@ -57,6 +57,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <ProjectReference>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -78,7 +81,7 @@
   <ItemGroup>
     <ClInclude Include="cDrawing.h" />
     <ClInclude Include="GLDraw2D.h" />
-    <ClInclude Include="myGlobals.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="zpr.h" />
   </ItemGroup>
   <ItemGroup>
@@ -87,8 +90,16 @@
     <ClCompile Include="zpr.c" />
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="GLDraw.rc" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\draw\draw.vcxproj">
       <Project>{143a5b6d-842e-4b32-b760-f38bc44f85bf}</Project>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

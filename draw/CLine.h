@@ -7,7 +7,7 @@
 class CLine{
 
 private:
-	static int iCount;
+	unsigned long ulCount = 0;
 
 private:
 	CPoint pStart;
@@ -16,9 +16,9 @@ private:
 public:
 	CLine();
 	CLine(CPoint Start, CPoint End);
-	CLine(int x1, int y1, int x2, int y2);
+	CLine(float x1, float y1, float x2, float y2);
 
-	~CLine(){ iCount--; };
+	~CLine(){ ulCount--; };
 
 	//copy constructior
 	CLine(const CLine& oSource);
@@ -28,8 +28,6 @@ public:
 
 	//draw stuff
 	void drawLine(void);
-
-	static int CLine::getCount() { return iCount; };
 
 	void set(CPoint Start, CPoint End);
 	void setStart(CPoint Start);

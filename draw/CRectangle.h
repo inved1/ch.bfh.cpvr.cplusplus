@@ -7,7 +7,7 @@
 class CRectangle{
 
 private:
-	static int iCount;
+	unsigned long ulCount = 0;
 
 private:
 	CPoint pBotLeft;
@@ -16,8 +16,8 @@ private:
 public:
 	CRectangle();
 	CRectangle(CPoint BotLeft, CPoint TopRight);
-	CRectangle(int x1, int y1, int x2, int y2);
-	~CRectangle(){ iCount--; };
+	CRectangle(float x1, float y1, float x2, float y2);
+	~CRectangle(){ ulCount--; };
 
 	//copy constructior
 	CRectangle(const CRectangle& oSource);
@@ -27,8 +27,6 @@ public:
 
 	//draw stuff
 	void drawRectangle();
-
-	static int CRectangle::getCount() { return iCount; };
 
 
 	void set(CPoint BotLeft, CPoint TopRight);

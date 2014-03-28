@@ -1,22 +1,39 @@
 #pragma once
+
+#include "..\draw\CPoint.h"
+using namespace std;
+
 class cDrawing
 {
 public:
 
-
-
-
-	void displayDrawing();
-
-	void clearDrawing();
-
-	void addPoint(int x, int y);
 	
-	void addCircle(int x, int y, float radius);
 
-	void addLine(int x1, int y1, int x2, int y2);
+	//copy from prof
+	enum eFigType
+	{
+		FIG_POINT = 0x00, 
+		FIG_LINE = 0x10, 
+		FIG_RECT = 0x20, 
+		FIG_CIRCLE = 0x30
+	};
+	
+	static void displayDrawing();
 
-	void addRectangle(int x1, int y1, int x2, int y2);
+	
+	static void clearDrawing();
+						
+	static void addFigure( CPoint * p1,  CPoint * p2);
+
+	static void addPoint( float x,  float y);
+
+	static void addCircle(float x, float y, float Radius);
+
+	static void addLine(float x1, float y1, float x2, float y2);
+
+	static void addRectangle(float x1, float y1, float x2, float y2);
+
+
 
 
 

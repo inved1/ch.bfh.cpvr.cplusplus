@@ -8,27 +8,26 @@ using namespace std;
 
 #pragma region "static"
 
-int CRectangle::iCount = 0;
 #pragma endregion
 
 
 #pragma region "CRectangle"
 
 CRectangle::CRectangle(){
-	CRectangle::iCount++;
+	CRectangle::ulCount++;
 }
 
-CRectangle::CRectangle(int x1, int y1, int x2, int y2){
+CRectangle::CRectangle(float x1, float y1, float x2, float y2){
 	this->pBotLeft.setX(x1);
 	this->pBotLeft.setY(y1);
 	this->pTopRight.setX(x2);
 	this->pTopRight.setY(y2);
-	CRectangle::iCount++;
+	CRectangle::ulCount++;
 }
 
 CRectangle::CRectangle(CPoint BotLeft, CPoint TopRight) :
 pBotLeft(BotLeft), pTopRight(TopRight){
-	CRectangle::iCount++;
+	CRectangle::ulCount++;
 }
 
 
