@@ -1,9 +1,11 @@
 #pragma once
 #pragma region "CPoint"
 
+#include "CFigure.h"
+
 using namespace std;
 
-class CPoint
+class CPoint : public CFigure 
 {
 
 	//friend
@@ -15,28 +17,29 @@ class CPoint
 
 private:
 	unsigned long ulCount = 0;
-
-
-private:
-	float X;
-	float Y;
+	float myX;
+	float myY;
+	ColorType myColor;
 
 public:
-	CPoint(){ X = 0; Y = 0; CPoint::ulCount++; };
-	CPoint(float x, float y) :X(x), Y(y) { CPoint::ulCount++; };
+	CPoint(){ myX = 0; myY = 0; myColor = BLACK;  CPoint::ulCount++; };
+	CPoint(float x, float y, ColorType c) :myX(x), myY(y), myColor(c) { CPoint::ulCount++; };
 	~CPoint(){ CPoint::ulCount--; };
+
+	void draw() const;
+	void erase() const;
+	void changeColor(ColorType c);
 
 	//copy constructior
 	CPoint(const CPoint& oSource); 
 
 	
-	CPoint operator+ (const CPoint& oSource) const { return CPoint(X + oSource.X, Y + oSource.Y); }
-	CPoint operator- (const CPoint& oSource) const { return CPoint(X - oSource.X, Y - oSource.Y); }
+	CPoint operator+ (const CPoint& oSource) const { return CPoint(myX + oSource.myX, myY + oSource.myY, oSource.myColor); }
+	CPoint operator- (const CPoint& oSource) const { return CPoint(myX - oSource.myX, myY - oSource.myY, oSource.myColor); }
 	//assignment
 	CPoint& operator= (const CPoint& oSource);
 
-	//draw stuff
-	void drawPoint(void);
+
 	static float pointSize;
 
 

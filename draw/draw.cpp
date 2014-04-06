@@ -5,6 +5,7 @@
 #include "CCircle.h"
 #include "CLine.h"
 #include "CRectangle.h"
+#include "CFigure.h"
 
 using namespace std;
 
@@ -27,17 +28,17 @@ int main(){
 	cin >> y3;
 
 
-	CPoint* oPoint1 = new CPoint(x1, y1);
-	CPoint* oPoint2 = new CPoint(x2, y2);
-	CPoint* oPoint3 = new CPoint(x3, y3);
-	CLine* oLine1 = new CLine(*oPoint1, *oPoint2);
-	CLine* oLine2 = new CLine(*oPoint2, *oPoint3);
+	CPoint* oPoint1 = new CPoint(x1, y1, BLACK );
+	CPoint* oPoint2 = new CPoint(x2, y2, BLACK);
+	CPoint* oPoint3 = new CPoint(x3, y3, BLACK);
+	CLine* oLine1 = new CLine(*oPoint1, *oPoint2, BLACK);
+	CLine* oLine2 = new CLine(*oPoint2, *oPoint3, BLACK);
 	
-	CRectangle* oRect1 = new CRectangle(*oPoint1, *oPoint2);
-	CRectangle* oRect2 = new CRectangle(*oPoint2, *oPoint3);
+	CRectangle* oRect1 = new CRectangle(*oPoint1, *oPoint2,BLACK);
+	CRectangle* oRect2 = new CRectangle(*oPoint2, *oPoint3,BLACK);
 
-	CCircle* oCircle1 = new CCircle(*oPoint1, x2);
-	CCircle* oCircle2 = new CCircle(*oPoint2, x3);
+	CCircle* oCircle1 = new CCircle(*oPoint1, x2, BLACK);
+	CCircle* oCircle2 = new CCircle(*oPoint2, x3, BLACK);
 	cout << "-------------------------------" << endl;
 	cout << "Point 1 list: ";  oPoint1->list();
 	cout << "Point 2 list: ";  oPoint2->list();

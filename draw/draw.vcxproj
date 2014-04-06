@@ -52,6 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -77,6 +78,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CCircle.cpp" />
+    <ClCompile Include="CFigure.cpp" />
     <ClCompile Include="CLine.cpp" />
     <ClCompile Include="CRectangle.cpp" />
     <ClCompile Include="draw.cpp" />
@@ -85,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CCircle.h" />
+    <ClInclude Include="CFigure.h" />
     <ClInclude Include="CLine.h" />
     <ClInclude Include="CRectangle.h" />
     <ClInclude Include="CPoint.h" />

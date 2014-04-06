@@ -12,6 +12,8 @@
 #include "..\draw\CLine.h"
 #include "..\draw\CRectangle.h"
 
+#include "UtilGlut.h"
+
 
 using namespace std;
 
@@ -21,6 +23,10 @@ CPoint *currentPoint2;
 
 void setup(void){
 	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_CULL_FACE);
+	glDisable(GL_LIGHTING);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 
 void reshape(int w, int h){
@@ -67,7 +73,7 @@ void mouseMotion(int x, int y)
 void keyInput(unsigned char key, int x, int y){
 	
 	
-	CPoint* currentPoint1 = new CPoint((float)x, (float)y);
+	CPoint* currentPoint1 = new CPoint((float)x, (float)y, BLACK);
 
 
 	switch (key){
@@ -96,19 +102,30 @@ void main(int argc, char *argv[]){
 
 	
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
 	glutInitWindowSize(1024, 768);
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Hello OpenGL");
 	setup();
 	zprInit();
+
+
 	glutDisplayFunc(display);
 	glutKeyboardFunc(keyInput);
+
 	glutReshapeFunc(reshape);
 	glutMouseFunc(mouseControl);
 	glutMotionFunc(mouseMotion);
 
-	glutMainLoop();
+	try
+	{
+		glutMainLoop();
+	}
+	catch (...)
+	{
+		CUtilGlut::showMessageBox("Error!");
+	}
+	
 	
 
 	exit(EXIT_SUCCESS);

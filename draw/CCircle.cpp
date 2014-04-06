@@ -20,36 +20,37 @@ CCircle::CCircle(){
 	CCircle::ulCount++;
 }
 
-CCircle::CCircle(CPoint Center, float Radius)
-:pCenter(Center), fRadius(Radius) {
+CCircle::CCircle(CPoint Center, float Radius, ColorType c)
+:myCenter(Center), myRadius(Radius), myColor(c){
 	CCircle::ulCount++;
 }
-CCircle::CCircle(float x, float y, float Radius){
-	this->pCenter = CPoint(x, y);
-	this->fRadius = Radius;
+CCircle::CCircle(float x, float y, float Radius, ColorType c){
+	this->myCenter = CPoint(x, y,c);
+	this->myRadius = Radius;
+	this->myColor = c;
 }
 
 CCircle::CCircle(const CCircle& oSource)
-:fRadius(oSource.fRadius),pCenter(oSource.pCenter) {
+:myRadius(oSource.myRadius), myCenter(oSource.myCenter),myColor(oSource.myColor) {
 	CCircle::ulCount++;
 }
 
 //assignment
 CCircle& CCircle::operator=(const CCircle& oSource){
-	this->fRadius = oSource.fRadius;
-	this->pCenter = oSource.pCenter;
+	this->myRadius = oSource.myRadius;
+	this->myCenter = oSource.myCenter;
 
 	return *this; //referenz auf mich selbst
 }
 
 //draw circle
-void CCircle::drawCircle(void){
+void CCircle::draw(void) const{
 	float angle = 0;
-	glColor3f(0.0, 0.0, 0.0);
+	glColor3f(CCircle::myR, CCircle::myG, CCircle::myB);
 	glBegin(GL_LINE_LOOP);
 	for (int i = 0; i <= iVertices; i++){
-		glVertex3d(this->pCenter.getX() + this->fRadius * cos(angle),
-			this->pCenter.getY() + this->fRadius * sin(angle),
+		glVertex3d(CCircle::myCenter.myX + CCircle::myRadius  * cos(angle),
+			CCircle::myCenter.myY + CCircle::myRadius * sin(angle),
 			0.0);
 		angle += 2 * PI / iVertices;
 	}
@@ -59,28 +60,32 @@ void CCircle::drawCircle(void){
 
 }
 
+void CCircle::erase(void) const {
+
+}
+
 void CCircle::set(CPoint Center, float Radius){
-	this->pCenter = Center;
-	this->fRadius = Radius;
+	this->myCenter = Center;
+	this->myRadius = Radius;
 }
 void CCircle::setCenter(CPoint Center){
-	this->pCenter = Center;
+	this->myCenter = Center;
 }
 void CCircle::setRadius(float Radius){
-	this->fRadius = Radius;
+	this->myRadius = Radius;
 }
 CPoint CCircle::listCenter(){
-	return this->pCenter;
+	return this->myCenter;
 }
 float CCircle::listRadius(){
-	return this->fRadius;
+	return this->myRadius;
 }
 float CCircle::getArea(){
-	return pow((float)this->fRadius, 2.0) * atan(1.0) * 4; //PI
+	return pow((float)this->myRadius, 2.0) * atan(1.0) * 4; //PI
 }
 void CCircle::list(void){
-	cout << "CCircle :" << endl << "--center-- "; this->pCenter.list();
-	cout << "--radius-- " << this->fRadius << endl;
+	cout << "CCircle :" << endl << "--center-- "; this->myCenter.list();
+	cout << "--radius-- " << this->myRadius << endl;
 
 }
 

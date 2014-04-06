@@ -25,13 +25,13 @@ public:
 						
 	static void addFigure( CPoint * p1,  CPoint * p2);
 
-	static void addPoint( float x,  float y);
+	static void addPoint( float x,  float y,ColorType c);
 
-	static void addCircle(float x, float y, float Radius);
+	static void addCircle(float x, float y, float Radius, ColorType c);
 
-	static void addLine(float x1, float y1, float x2, float y2);
+	static void addLine(float x1, float y1, float x2, float y2, ColorType c);
 
-	static void addRectangle(float x1, float y1, float x2, float y2);
+	static void addRectangle(float x1, float y1, float x2, float y2, ColorType c);
 
 
 

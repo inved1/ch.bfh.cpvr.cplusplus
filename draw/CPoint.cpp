@@ -29,49 +29,58 @@ CPoint::CPoint(const CPoint& oSource){
 //assignment
 CPoint& CPoint::operator=(const CPoint& oSource){
 
-	X = oSource.X;
-	Y = oSource.Y;
+	myX = oSource.myX;
+	myY = oSource.myY;
+	myColor = oSource.myColor;
 	
 	return *this; //referenz auf mich selbst
 }
 
 //draw stuff
-void  CPoint::drawPoint(void){
+void  CPoint::draw() const{
 	glPointSize(CPoint::pointSize);
+	glColor3f(CPoint::myR, CPoint::myG, CPoint::myB);
 	glBegin(GL_POINTS);
-	glVertex3f(X, Y, 0.0);
+
+	glVertex3f(myX, myY, 0.0);
 	glEnd();
 
 }
 
+void CPoint::erase() const {
+
+}
+
+
+
 float CPoint::pointSize = pSize;
 void CPoint::set(float x, float y){
-	this->X = x;
-	this->Y = y;
+	this->myX = x;
+	this->myY = y;
 }
 
 void CPoint::setX(float x){
-	this->X = x;
+	this->myX = x;
 }
 
 void CPoint::setY(float y){
-	this->Y = y;
+	this->myY = y;
 }
 
 float CPoint::getX(void){
-	return this->X;
+	return this->myX;
 }
 float CPoint::getY(void){
-	return this->Y;
+	return this->myY;
 }
 void CPoint::listX(void){
-	cout << "CPoint : x= " << this->X;
+	cout << "CPoint : x= " << this->myX;
 }
 void CPoint::listY(void){
-	cout << "CPoint : y= " << this->Y;
+	cout << "CPoint : y= " << this->myY;
 }
 void CPoint::list(void){
-	cout << "CPoint : x= " << this->X << ", y= " << this->Y << endl;
+	cout << "CPoint : x= " << this->myX << ", y= " << this->myY << endl;
 }
 
 

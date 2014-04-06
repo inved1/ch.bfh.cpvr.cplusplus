@@ -27,6 +27,9 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UtilGlut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLDraw2D.cpp">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="zpr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilGlut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
